@@ -1,0 +1,14 @@
+1. Install NVIDIA drivers and tools
+pacman -Sy --needed \ base-devel git curl wget \ dkms linux=headers \ nvidia-dkms nvidia-utils cuda cudnn \ python python-pip python-virtualenv
+reboot machine
+Check GPU with nvidia-smi, confirm GPU is listed.
+
+2. Install Ollama (Ollama allows you to interact with LLMs locally on your machine)
+curl -fsSL https://ollama.com/install/sh |sh (can use bash instead)
+enable the service: systemctl --user enable --now ollama
+
+3. Pull and Run Mistral-7B
+ollama pull mistral:7b (this may take some time)
+ollama run mistral:7b
+text should show as >>>
+test with question
